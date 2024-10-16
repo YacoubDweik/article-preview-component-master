@@ -1,0 +1,211 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --Very-Dark-Grayish-Blue: hsl(217, 19%, 35%);
+  --Desaturated-Dark-Blue: hsl(214, 17%, 51%);
+  --Grayish-Blue: hsla(212, 23%, 69%, 55%);
+  --Light-Grayish-Blue: hsl(210, 46%, 95%);
+  --Font-size: 13px;
+  /* - Family: [Manrope]
+  - Weights: 500, 700 */
+}
+
+body {
+  background-color: var(--Grayish-Blue);
+  height: 100vh;
+}
+
+.card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(90%, 330px);
+  margin: 0 auto;
+  background-color: var(--Light-Grayish-Blue);
+  font-weight: 500;
+  font-size: var(--Font-size);
+  text-align: left;
+  font-family: "Manrope";
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 25px 25px hsla(212, 23%, 69%, 50%);
+}
+
+.card__image {
+  max-height: 200px;
+  overflow: hidden;
+}
+
+.card__image img {
+  max-width: 100%;
+}
+
+.card__body {
+  padding: 34px 32px 20px;
+}
+
+.card__title {
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--Very-Dark-Grayish-Blue);
+  line-height: 1.5;
+}
+
+.card__text {
+  padding: 20px 0 32px;
+  color: var(--Desaturated-Dark-Blue);
+  line-height: 1.5;
+  max-width: 257px;
+}
+
+.card__profile {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.profile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 1.5;
+}
+
+.profile .name {
+  color: var(--Very-Dark-Grayish-Blue);
+  font-weight: 700;
+}
+
+.profile .date {
+  color: var(--Desaturated-Dark-Blue);
+}
+
+.card__profile .profile img {
+  display: inline-block;
+  max-width: 40px;
+  margin-right: 16px;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+.card__share--out,
+.card__share--in {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: hsla(212, 23%, 69%, 25%);
+  cursor: pointer;
+}
+
+.card__share {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: calc(100% + 64px);
+  height: calc(100% + 40px);
+  padding: 20px 32px;
+  position: absolute;
+  top: -20px;
+  left: -32px;
+  background-color: var(--Very-Dark-Grayish-Blue);
+  transform: translateY(100%);
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.card__share.active {
+  opacity: 1;
+  transform: translateY(0%);
+  z-index: 0;
+}
+
+.card__share img {
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.icons {
+  display: inline-block;
+  width: 175px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icons > span {
+  text-transform: uppercase;
+  color: var(--Grayish-Blue);
+  font-size: 16px;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+@media (min-width: 900px) {
+  .card {
+    width: min(90%, 730px);
+    display: flex;
+    justify-content: space-between;
+    overflow: visible;
+  }
+  .card__image {
+    max-height: 100%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+  .card__image img {
+    height: 100%;
+  }
+  .card__title {
+    max-width: 90%;
+    font-size: 20px;
+  }
+  .card__text {
+    max-width: 90%;
+    padding: 16px 0 24px;
+  }
+  .card__share {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    width: 250px;
+    padding: 16px 32px;
+    background-color: var(--Very-Dark-Grayish-Blue);
+    transform: translateY(100%);
+    opacity: 0;
+    transition: 0.5s;
+    border-radius: 10px;
+    top: -75px;
+    left: auto;
+    right: -110px;
+    z-index: -1;
+  }
+  .card__share::before {
+    content: "";
+    height: 0;
+    width: 0;
+    background-color: transparent;
+    border: 10px solid;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -2%);
+    border-color: var(--Very-Dark-Grayish-Blue) transparent
+      transparent transparent;
+  }
+  .card__share--in {
+    display: none;
+  }
+}
